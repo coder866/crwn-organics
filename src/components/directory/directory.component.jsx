@@ -1,6 +1,6 @@
 import React from "react";
 import "./directory.style.scss";
-import { MenuItem } from "../menuitem/menu-item.component";
+import MenuItem from "../menuitem/menu-item.component";
 
 class Directory extends React.Component {
   constructor() {
@@ -12,21 +12,21 @@ class Directory extends React.Component {
           imageUrl:
             "https://i.ibb.co/k24SqKm/chantal-garnier-910-Ganw-Boew-unsplash.jpg",
           id: 1,
-          linkUrl: "shop/vegetables",
+          linkUrl: "vegetables",
         },
         {
           title: "cereals",
           imageUrl:
             "https://i.ibb.co/Ydgjjvp/v2osk-c9-Ofr-Ve-D-t-Q-unsplash.jpg",
           id: 2,
-          linkUrl: "shop/cereals",
+          linkUrl: "",
         },
         {
           title: "spices",
           imageUrl:
             "https://i.ibb.co/d2Lg8zF/laura-cortesi-NMF5s-Ea-HUmo-unsplash.jpg",
           id: 3,
-          linkUrl: "shop/spices",
+          linkUrl: "",
         },
         {
           title: "herbs",
@@ -34,7 +34,7 @@ class Directory extends React.Component {
             "https://i.ibb.co/r325xVN/joanna-kosinska-i0-Ivw-Ahh-GZM-unsplash.jpg",
           size: "large",
           id: 4,
-          linkUrl: "shop/herbs",
+          linkUrl: "",
         },
         {
           title: "Fruits",
@@ -42,7 +42,7 @@ class Directory extends React.Component {
             "https://i.ibb.co/MSpdHJm/reiseuhu-JI5-Vd-AD2m-Ao-unsplash.jpg",
           size: "large",
           id: 5,
-          linkUrl: "shop/fruits",
+          linkUrl: "",
         },
       ],
     };
@@ -50,8 +50,8 @@ class Directory extends React.Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({ id, title, imageUrl, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );
